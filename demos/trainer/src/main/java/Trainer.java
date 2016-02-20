@@ -39,7 +39,7 @@ import java.util.*;
 public class Trainer {
     // constant defining possible character set - only those characters woll be trained
     // and recognized later
-    public static final String POSSIBLE = "0123456789";
+    public static final String POSSIBLE = "012";
     private static final String TAB = "\t";
 
     /**
