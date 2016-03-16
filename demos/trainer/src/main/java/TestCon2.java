@@ -17,15 +17,18 @@ public class TestCon2 {
 		 OCRScanner scanner = new OCRScanner();
 	        TrainingImageLoader loader = new TrainingImageLoader();
 	        HashMap<Character, ArrayList<TrainingImage>> trainingImageMap = new HashMap<Character, ArrayList<TrainingImage>>();
-	        loader.load("C:\\Users\\Tommy\\Pictures\\test\\4c4RL.png", new CharacterRange('!', '~'), trainingImageMap);
+	        loader.load("D:\\OCRProject\\demos\\trainer\\src\\main\\java\\123.png", new CharacterRange('0', '8'), trainingImageMap);
+	        loader.load("D:\\OCRProject\\demos\\trainer\\src\\main\\java\\4c4RL.png", new CharacterRange('!', '~'), trainingImageMap);
+
 	        scanner.addTrainingImages(trainingImageMap);
 
-	        Image image = ImageIO.read(new File("C:\\Users\\Tommy\\Pictures\\test\\4c4RL.png"));
+	        Image image = ImageIO.read(new File("D:\\OCRProject\\demos\\trainer\\src\\main\\java\\test2.png"));
 	        PixelImage pixelImage = new PixelImage(image);
 	        pixelImage.toGrayScale(true);
 	        pixelImage.filter();
-
-	        String text = scanner.scan(image, 0, 0, 0, 0, null);
+	        CharacterRange[] acceptableChars=new CharacterRange[1];
+	        acceptableChars[0]=new CharacterRange('0','9');
+	        String text = scanner.scan(image, 0, 0, 0, 0, acceptableChars);
 	        System.out.println(text);
 
 	}
